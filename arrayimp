@@ -1,0 +1,96 @@
+#include <iostream>
+using namespace std;
+class array 
+{
+int a[50],n,pos,elem,i;
+public: 
+void getarray();
+void displayarray();
+void insertion();
+void deletion();
+};
+void array::getarray()
+{
+cout<<"enter the size of array";
+cin>>n;
+cout<<"enter the elements of array";
+for(i=0;i<n;i++)
+{
+cin>>a[i];
+}
+}
+void array:: displayarray()
+{
+	if(n==0)
+	{
+		cout<<"no elements ";
+	}
+	else 
+	{
+		for(i=0;i<n;i++)
+		{
+			cout<<a[i]<<"";
+		}
+	}
+}
+void array::insertion()
+{
+	cout<<"enter the element to be inserted";
+	cin>>elem;
+	cout<<"enter the pos";
+	cin>>pos;
+	n=n+1;
+	for(i=n;i>=pos;i--)
+	{
+		a[i]=a[i-1];
+	}
+	a[pos]=elem;
+	cout<<"after insertion";
+	displayarray();
+}
+void array::deletion()
+{
+	cout<<"enter the pos to dlt";
+	cin>>pos;
+	--pos;
+	n=n-1;
+	for(i=pos;i<n;i++)
+	{
+		a[i]=a[i+1];
+	}
+	cout<<"aftr dltion";
+	displayarray();
+}
+int main()
+{
+ int option=0;
+ array obj;
+ cout<<"menu \n" ;
+ cout<<"1.input array \n";
+ cout<<"2.display array \n";
+ cout<<"3.insertion array \n";
+ cout<<"4.deletion array \n";
+ cout<<"5.exit \n";
+ while(option!=5)
+ {
+	 cout<<"enter u r option";
+	 cin>>option;
+	 switch(option)
+	 {
+		 case 1:obj.getarray();
+		 break;
+		 case 2:obj.displayarray();
+		 break;
+		 case 3:obj.insertion();
+		 break;
+		 case 4:obj.deletion();
+		 break;
+		 case 5:break;
+		 default:cout<<"invalid option";
+	 }
+ }
+ return 0;
+}
+	
+	
+
